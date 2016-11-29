@@ -120,7 +120,7 @@ div.content_box {
 								</select>
 							</div>
 							<div class="col-xs-3"><label for="algorithm" class="control-label">预测算法</label>
-								<select id="algorithm" class="form-control" style="width:200px;">
+								<select id="algorithm" multiple="multiple" style="width:200px;">
 									<option value="bp" selected="selected">BP</option>
 									<option value="tree">搜索树</option>
 									<option value="smoreg">支持向量机回归</option>
@@ -134,7 +134,7 @@ div.content_box {
 								<label class="control-label">结束日期：</label>
 								<input id="endDate" class="form-control" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',isShowClear:false})"/>
 							</div>
-							<div class="col-xs-3"><input id="dataFitting" class="btn btn-primary" type="button" value="查询" onclick="forcast()"/></div>
+							<div class="col-xs-3"><input id="dataFitting" class="btn btn-primary" type="button" value="查询" onclick="waterPrediction()"/></div>
 						</div>
 					</form>	
 			  	</div>
@@ -348,11 +348,12 @@ div.content_box {
 <script>
 	$(document).ready(function() {
 		getAllCstId();
+		$('#algorithm').multipleSelect();
 		$('#e_algorithm').multipleSelect();
 	});
 	//var tableDatas=[];
 	var table;
-	initEcharts('chart');
+	//initEcharts('chart');
 	initTable2('table');
 	
 	
@@ -373,7 +374,7 @@ div.content_box {
 			  contentType:"application/json"
 		});
 	}
-	
+	/*
 	function forcast(){
 		var cst_id=$("#place").val();
 		var timeInterval= $("#timeInterval").val();
@@ -390,8 +391,52 @@ div.content_box {
 			  dataType: "json",
 			  contentType:"application/json"
 		});
+	}*/
+	//水预测
+	function waterPrediction(){
+		var cst_id = $("#place").val();
+		var timeInterval = $("#timeInterval").val();
+		var forcastDays = $("#forcastDays").val();
+		var algorithm = $("#algorithm").val();
+		var startDate = $("#startDate").val();
+		var endDate = $("#endDate").val();
+		
+		$.ajax({
+			type: 'POST',
+			url: 'rest/system/waterPredictAction/predictWater',
+			data:JSON3.stringify({
+				cst_id:cst_id,
+				timeInterval:timeInterval,
+				forcastDays:forcastDays,
+				algorithm:algorithm,
+				startDate:startDate,
+				endDate:endDate
+			}),
+			success:function(result){
+				var resultList=result.data;//获取返回的结果集
+				var xData=[];//存储echart x轴数据
+				var yData=[];//存储echart y轴数据
+				var predictValue=[];//实际预测值
+				//加载表格，加载echart
+				//读取返回的x轴数据
+				for(var i = 0;i<resultList.length; i++){
+					xData[i]=resultList[i].cDate;
+					predictValue[i]=resultList[i].predictValue;
+						
+				}
+				 yData=[
+					 {name:'predictValue',type:'line',data:predictValue}
+				  ];
+				  //加载chart
+				  initPredictEcharts('chart',xData,yData);
+				
+			},
+			dataType:"json",
+			contentType:"application/json"
+			
+		});
+		
 	}
-	
 	function modelEvaluation(){
 		var cst_id=$("#e_place").val();
 		var beginDate=$("#e_startDate").val();
