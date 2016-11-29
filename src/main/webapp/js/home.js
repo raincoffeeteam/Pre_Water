@@ -1,3 +1,43 @@
+function initPredictEcharts(elem,xData,yData){
+	var myChart = echarts.init(document.getElementById(elem));
+	option = {
+		    title : {
+		        text: '预测值',
+		    },
+		    tooltip : {
+		        trigger: 'axis'
+		    },
+		    toolbox: {
+		        show : true,
+		        feature : {
+		            mark : {show: true},
+		            dataView : {show: true, readOnly: false},
+		            magicType : {show: true, type: ['line', 'bar']},
+		            restore : {show: true},
+		            saveAsImage : {show: true}
+		        }
+		    },
+		    calculable : true,
+		    xAxis : [
+		        {
+		            type : 'category',
+		            boundaryGap : false,
+		            data : xData
+		        }
+		    ],
+		    yAxis : [
+		        {
+		            type : 'value',
+		            axisLabel : {
+		                formatter: '{value} t'
+		            }
+		        }
+		    ],
+		    series : yData
+		};
+	myChart.setOption(option);                    
+}
+
 function initEcharts(elem,xData,yData){
 	var myChart = echarts.init(document.getElementById(elem));
 	option = {
