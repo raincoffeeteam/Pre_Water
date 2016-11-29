@@ -403,7 +403,7 @@ div.content_box {
 		
 		$.ajax({
 			type: 'POST',
-			url: 'rest/system/waterPredictAction/predictWater',
+			url: 'rest/system/waterPredictAction/predictWater/',
 			data:JSON3.stringify({
 				cst_id:cst_id,
 				timeInterval:timeInterval,
