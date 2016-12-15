@@ -90,20 +90,11 @@ time:"2016-09-02 00:00:00"
  * @param elem
  * @returns
  */
-function initTable2(elem){
+function initTable2(elem,tableDatas){
 	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) { $($.fn.dataTable.tables(true)).DataTable().columns.adjust(); });
-	tableDatas=[];
-	tableDatas=[];
-	for(var i=0;i<10;i++){
-		tableDatas[i]={
-			'id':i,
-			'product':'product'+i,
-			'time':'2016-09-08',
-			'num':100,
-		}
-	}
+	var tableDatas=tableDatas;
 	var lengthMenu;
-	if(elem=='t3'){
+	if(elem=='table1'){
 		lengthMenu=[4]
 		buttons=[]
 	}else{
@@ -133,9 +124,9 @@ function initTable2(elem){
 		stripeClasses: [ 'strip1', 'strip2' ],
 		columns: [
 			{ title:"编号","data": "id" , "className": "dt-center"},
-			{ title:"测量名称","data": "product" , "className": "dt-center" },
-			{ title:"时间","data": "time" , "className": "dt-center" },
-			{ title:"用量","data": "num" , "className": "dt-center" }
+			{ title:"预测点","data": "cst_id" , "className": "dt-center" },
+			{ title:"预测时间","data": "cDate" , "className": "dt-center" },
+			{ title:"预测用量","data": "predictValue" , "className": "dt-center" }
 		],
 		data: tableDatas,
 		language: {
