@@ -20,6 +20,11 @@ public interface Interval_DDao {
 	
 	public Interval_D getInterval_DByCstIdAndTs(Map<String, Object> map);
 	
+	public List<Map<String,Object>> getAllByCstId(String cst_id); //通过id获取数据
+	
+	public long getMaxTimeByCstId(String cst_id); //通过id获取当前最大时间
+	public double getRByTime(long time,String cst_id);//通过时间获取用水量
+	
 	public void autoSave(Long t);
 	
 }
