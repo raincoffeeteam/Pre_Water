@@ -26,9 +26,20 @@ public class Interval_DService {
 	public Map<String, Object> getMaxDateAndMinDateByCstId(String cst_id){
 		return dao.getMaxDateAndMinDateByCstId(cst_id);
 	}
-	
+	//getAllByCstId
+	public List<Map<String,Object>> getAllByCstId(String cst_id){
+		return dao.getAllByCstId(cst_id);
+	}
+	//getMaxTimeByCstId
+	public long getMaxTimeByCstId(String cst_id){
+		return dao.getMaxTimeByCstId(cst_id);
+	}
 	public Interval_D getInterval_DByCstIdAndTs(Map<String, Object> map){
 		return dao.getInterval_DByCstIdAndTs(map);
+	}
+	
+	public double getRByTime(long time,String cst_id){
+		return dao.getRByTime(time,cst_id);
 	}
 	
 }
