@@ -126,14 +126,6 @@ div.content_box {
 									<option value="smoreg">支持向量机回归</option>
 								</select>
 							</div>
-							<div class="col-xs-3">
-								<label class="control-label">开始日期：</label>
-								<input id="startDate" class="form-control" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',isShowClear:false})"/>
-							</div>
-							<div class="col-xs-3">
-								<label class="control-label">结束日期：</label>
-								<input id="endDate" class="form-control" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',isShowClear:false})"/>
-							</div>
 							<div class="col-xs-3"><input id="dataFitting" class="btn btn-primary" type="button" value="查询" onclick="waterPrediction()"/></div>
 						</div>
 					</form>	
@@ -146,7 +138,7 @@ div.content_box {
 							<span style="background"><img></img></span><span>预测表</span>
 						</div>
 					  	<div class="box-body" >
-							<table id="table" class="dataTable table-striped table-bordered table-condensed" style="width:100%; height:400px;"></table>
+							<table id="table1" class="dataTable table-striped table-bordered table-condensed" style="width:100%; height:400px;"></table>
 						</div>	
 						</div>
 				  	</div>
@@ -354,7 +346,7 @@ div.content_box {
 	//var tableDatas=[];
 	var table;
 	//initEcharts('chart');
-	initTable2('table');
+	
 	
 	
 	function getAllCstId(){
@@ -395,41 +387,47 @@ div.content_box {
 	//水预测
 	function waterPrediction(){
 		var cst_id = $("#place").val();
-		var timeInterval = $("#timeInterval").val();
-		var forcastDays = $("#forcastDays").val();
-		var algorithm = $("#algorithm").val();
-		var startDate = $("#startDate").val();
-		var endDate = $("#endDate").val();
+		var timeInterval = $("#timeInterval").val(); //时间间隔 默认一天
+		var forcastDays = $("#forcastDays").val(); //预测天数
+		var algorithm = $("#algorithm").val();//算法选择
+		//var startDate = $("#startDate").val();
+		//var endDate = $("#endDate").val();
 		
 		$.ajax({
 			type: 'POST',
-			url: 'rest/system/waterPredictAction/predictWater',
+			url: 'rest/system/waterPredictAction/predictWater/',
 			data:JSON3.stringify({
 				cst_id:cst_id,
 				timeInterval:timeInterval,
 				forcastDays:forcastDays,
 				algorithm:algorithm,
-				startDate:startDate,
-				endDate:endDate
+			//	startDate:startDate,
+			//	endDate:endDate
 			}),
 			success:function(result){
 				var resultList=result.data;//获取返回的结果集
 				var xData=[];//存储echart x轴数据
 				var yData=[];//存储echart y轴数据
 				var predictValue=[];//实际预测值
+				var tableDatas=[];//保存表数据
 				//加载表格，加载echart
 				//读取返回的x轴数据
 				for(var i = 0;i<resultList.length; i++){
 					xData[i]=resultList[i].cDate;
 					predictValue[i]=resultList[i].predictValue;
-						
+			        tableDatas[i]={
+							'id':i+1,
+							'cst_id':resultList[i].cst_id,
+							'cDate':resultList[i].cDate,
+							'predictValue':resultList[i].predictValue,
+						};	
 				}
 				 yData=[
 					 {name:'predictValue',type:'line',data:predictValue}
 				  ];
 				  //加载chart
+				  initTable2('table1',tableDatas);
 				  initPredictEcharts('chart',xData,yData);
-				
 			},
 			dataType:"json",
 			contentType:"application/json"
