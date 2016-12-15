@@ -40,7 +40,8 @@ public class DateUtil {
 		return pTime.split("-")[1];
 	}
 	public static String day(String pTime){
-		return pTime.split("-")[2];
+		String date = pTime.split(" ")[0];
+		return date.split("-")[2];
 	}
 	public static String week(String pTime){
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
