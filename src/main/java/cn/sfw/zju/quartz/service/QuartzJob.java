@@ -53,10 +53,10 @@ public class QuartzJob implements Job {
 	}
 	
 	@Transactional
-	public void autoImport() throws IOException{
+	public void autoImport(Long time) throws IOException{
 		SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
 		//从日期表中读数据转化成二进制格式插入到新表中
-		List<Interval_D> intervalList =dayDaoService.getAllInterval_D();
+		List<Interval_D> intervalList =dayDaoService.getInterval_DByTime(time);
 		//System.out.println(intervalList);
 		for(int i=0;i<intervalList.size();i++){
 			New_Interval_D newInterval = new New_Interval_D();
