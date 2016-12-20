@@ -29,7 +29,7 @@ public interface Interval_DDao {
 	
 	public void autoImport();
 	
-	public List<Interval_D> getAllInterval_D();
+	public List<Interval_D> getInterval_DByTime(Long time);
 	
 	
 }
