@@ -49,7 +49,7 @@
 	    <result column="R7" property="r7" jdbcType="DOUBLE"/>    
 	    <result column="A3" property="a3" jdbcType="DOUBLE"/> 
     </resultMap> 	
-	<select id="getAllInterval_D" resultMap="Interval_DList">
-		select CST_ID,CST_NAME,MDI_TS,CDATE,M,D,W,IS_HOLIDAYS,R,R1,R2,R3,R7,A3 FROM INTERVAL_D 
+	<select id="getInterval_DByTime" parameterType="long" resultMap="Interval_DList">
+		select CST_ID,CST_NAME,MDI_TS,CDATE,M,D,W,IS_HOLIDAYS,R,R1,R2,R3,R7,A3 FROM INTERVAL_D where MDI_TS > #{time}
 	</select>
 </mapper>
