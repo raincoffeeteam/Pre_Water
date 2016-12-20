@@ -443,7 +443,7 @@ div.content_box {
 		var algorithm=$("#e_algorithm").val();
 		$.ajax({
 			  type: 'POST',
-			  url: 'rest/system/modelEvaluation/modelEvalution/',
+			  url: 'rest/system/modelEvalAction/modelEvalution/',
 			  data:JSON3.stringify({
 				  cst_id:cst_id,
 				  timeInterval:timeInterval,
