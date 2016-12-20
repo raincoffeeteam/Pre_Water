@@ -46,7 +46,7 @@ public class WaterPredictAction {
 	private Interval_DService interval_DService;
 	
 	private WekaUtils wekaUtils=WekaUtils.getInstance();
-	private QuartzJob test = new QuartzJob();
+	
 	
 	
 	/**
@@ -60,10 +60,6 @@ public class WaterPredictAction {
 	@ResponseBody
 	@RequestMapping(value = "/predictWater/", method = RequestMethod.POST)
 	public Message predictWater(HttpServletRequest request,HttpServletResponse response,@RequestBody Map<String,Object> map) throws IOException {
-		test.autoImport();
-		//List<Interval_D> intervalList = dayDaoService.getAllInterval_D();
-		//System.out.println(intervalList);
-		
 		Message message = new Message();
 		
 		String cst_id =(String) map.get("cst_id");
