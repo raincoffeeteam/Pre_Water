@@ -41,5 +41,8 @@ public class Interval_DService {
 	public double getRByTime(long time,String cst_id){
 		return dao.getRByTime(time,cst_id);
 	}
+	public List<Interval_D> getAllInterval_D(){
+		return dao.getAllInterval_D();
+	}
 	
 }
