@@ -27,4 +27,9 @@ public interface Interval_DDao {
 	
 	public void autoSave(Long t);
 	
+	public void autoImport();
+	
+	public List<Interval_D> getAllInterval_D();
+	
+	
 }
