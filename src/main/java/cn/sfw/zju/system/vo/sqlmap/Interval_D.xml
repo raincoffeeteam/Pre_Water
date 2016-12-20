@@ -32,4 +32,24 @@
 		    {call AUTOSAVE_DAY (#{t,mode=IN,jdbcType=BIGINT})}
 		]]>
 	</update>	
+	
+    <resultMap id="Interval_DList" type="cn.sfw.zju.system.vo.Interval_D">    
+	    <id column="CST_ID" property="cst_id" jdbcType="INTEGER"/>    
+	    <result column="CST_NAME" property="cst_name" jdbcType="VARCHAR"/>    
+	    <result column="MDI_TS" property="mdi_ts" jdbcType="BIGINT"/>    
+	    <result column="CDATE" property="cdate" jdbcType="VARCHAR"/>    
+	    <result column="M" property="m" jdbcType="VARCHAR"/>    
+	    <result column="D" property="d" jdbcType="VARCHAR"/>    
+	    <result column="W" property="w" jdbcType="VARCHAR"/>  
+	    <result column="IS_HOLIDAYS" property="is_holidays" jdbcType="VARCHAR"/>    
+	    <result column="R" property="r" jdbcType="DOUBLE"/>    
+	    <result column="R1" property="r1" jdbcType="DOUBLE"/>    
+	    <result column="R2" property="r2" jdbcType="DOUBLE"/>    
+	    <result column="R3" property="r3" jdbcType="DOUBLE"/>    
+	    <result column="R7" property="r7" jdbcType="DOUBLE"/>    
+	    <result column="A3" property="a3" jdbcType="DOUBLE"/> 
+    </resultMap> 	
+	<select id="getAllInterval_D" resultMap="Interval_DList">
+		select CST_ID,CST_NAME,MDI_TS,CDATE,M,D,W,IS_HOLIDAYS,R,R1,R2,R3,R7,A3 FROM INTERVAL_D 
+	</select>
 </mapper>
