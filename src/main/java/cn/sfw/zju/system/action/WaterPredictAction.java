@@ -1,5 +1,6 @@
 package cn.sfw.zju.system.action;
 
+import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -20,10 +21,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import cn.sfw.zju.common.Message;
 import cn.sfw.zju.common.util.DateUtil;
+import cn.sfw.zju.quartz.service.QuartzJob;
 import cn.sfw.zju.system.service.Interval_DService;
+import cn.sfw.zju.system.service.New_Interval_DService;
 import cn.sfw.zju.system.util.InstancesUtils;
 import cn.sfw.zju.system.util.WekaUtils;
 import cn.sfw.zju.system.vo.Interval_D;
+import cn.sfw.zju.system.vo.New_Interval_D;
 import weka.classifiers.Classifier;
 import weka.classifiers.meta.CVParameterSelection;
 import weka.core.Attribute;
@@ -42,6 +46,8 @@ public class WaterPredictAction {
 	private Interval_DService interval_DService;
 	
 	private WekaUtils wekaUtils=WekaUtils.getInstance();
+	private QuartzJob test = new QuartzJob();
+	
 	
 	/**
 	 * 
@@ -49,10 +55,15 @@ public class WaterPredictAction {
 	 * @param response
 	 * @param map11
 	 * @return
+	 * @throws IOException 
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/predictWater/", method = RequestMethod.POST)
-	public Message predictWater(HttpServletRequest request,HttpServletResponse response,@RequestBody Map<String,Object> map) {
+	public Message predictWater(HttpServletRequest request,HttpServletResponse response,@RequestBody Map<String,Object> map) throws IOException {
+		test.autoImport();
+		//List<Interval_D> intervalList = dayDaoService.getAllInterval_D();
+		//System.out.println(intervalList);
+		
 		Message message = new Message();
 		
 		String cst_id =(String) map.get("cst_id");
