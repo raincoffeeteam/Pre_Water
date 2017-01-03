@@ -75,7 +75,7 @@ public class WaterPredictAction {
 		Instances train=InstancesUtils.createPreDayInstances(list);
 		
 		//获取时间间隔timeInterval(假设暂时指定天)
-	//	int timeInterval=(int) map.get("timeInterval");
+		//int timeInterval=(int) map.get("timeInterval");
 		//处理数据	
 		try {
 			train = wekaUtils.toBinary(wekaUtils.normalizeV(wekaUtils.standardizeV(wekaUtils.replaceMissingV(train))));
@@ -85,8 +85,8 @@ public class WaterPredictAction {
 		}
 		//模型训练
 	//	String s =(String) map.get("algorithm");
-		List<String> algorithm =(List<String>) map.get("algorithm");
-		String s = algorithm.get(0);
+		String s =(String) map.get("algorithm");
+		
 		Classifier classifier=null;
 		CVParameterSelection cvParameterSelection = new CVParameterSelection(); //寻找最优参数得类
 		try {
