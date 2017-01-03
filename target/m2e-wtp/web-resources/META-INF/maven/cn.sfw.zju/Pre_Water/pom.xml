@@ -118,9 +118,9 @@
 	<!--导入Oracle数据库连接jar包  -->
 	<!-- https://mvnrepository.com/artifact/com.oracle/ojdbc14 -->
 	<dependency>
-	    <groupId>com.oracle</groupId>
-	    <artifactId>ojdbc6</artifactId>
-	    <version>11.2.0</version>
+		<groupId>com.oracle</groupId>
+		<artifactId>ojdbc14</artifactId>
+		<version>12.1.0.2</version>
 	</dependency>
 	
 	<!-- 导入weka的jar包 -->
