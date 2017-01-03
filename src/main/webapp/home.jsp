@@ -193,7 +193,8 @@ div.content_box {
 							</div>
 							<div class="col-xs-3">
 								<label class="control-label">开始日期：</label>
-								<input id="m_startDate" class="form-control" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false})"/>
+								<input id="m_startDate" class="form-control" type="date"/>
+								<!-- <input id="m_startDate" class="form-control" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false})"/> -->
 							</div>
 							<div class="col-xs-3">
 								<label class="control-label">结束日期：</label>
