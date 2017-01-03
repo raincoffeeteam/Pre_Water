@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>模型管理</title>
  <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -30,7 +30,7 @@
 		<jsp:include page="toolbar.jsp"></jsp:include>
 		<div class="content-wrapper">
 		    <section class="content-header">
-		      <h1>ModelManage<small>analysis</small></h1>
+		      <h1>ModelManage<small>manage</small></h1>
 		      <ol class="breadcrumb">
 		        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
 		        <li class="active">ModelManage</li>
@@ -158,13 +158,15 @@
 		    	</div>
 		    </section>
 		</div>			
+		<jsp:include page="footer.jsp"></jsp:include>  
 	</div>
-	<jsp:include page="footer.jsp"></jsp:include>   
+	 
 </div>	
  <!-- jQuery 2.2.3 -->
 <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="dist/js/app.min.js"></script>
 <!-- Select2 -->
 <script src="plugins/select2/select2.full.min.js"></script>
 <script src="extends/datatables/media/js/jquery.dataTables.min.js"></script>

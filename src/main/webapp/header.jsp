@@ -2,8 +2,8 @@
 <!-- Main Header -->
   <header class="main-header">
   	<a href="#" class="logo">
-      <span class="logo-mini"><b>L</b>A</span>
-      <span class="logo-lg"><b>Lago</b>Analysis</span>
+      <span class="logo-mini"><b>W</b>P</span>
+      <span class="logo-lg"><b>工业用水预测</b>Predict</span>
     </a>
     <nav class="navbar navbar-static-top" role="navigation">>
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">

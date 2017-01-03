@@ -45,25 +45,3 @@
 	
 </body>
 </html>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			//s();
-		});	
-		function s(){
-			$.ajax({
-				  type: 'POST',
-				  url: 'rest/system/city/getCityByCountry/',
-				  data:JSON3.stringify({
-					  countryCode:"AFG"
-					}),
-				  success: function(result){
-					  debugger;
-					  list =result.data;
-					  $("#test").html(JSON3.stringify(result.data))
-					  alert(result)
-				  },
-				  dataType: "json",
-				  contentType:"application/json"
-			});
-		}
-	</script>

@@ -29,10 +29,10 @@
 		<jsp:include page="toolbar.jsp"></jsp:include>
 		<div class="content-wrapper">
 		    <section class="content-header">
-		      <h1>Predict<small>analysis</small></h1>
+		      <h1>WaterPredict<small>predict</small></h1>
 		      <ol class="breadcrumb">
 		        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-		        <li class="active">Predict</li>
+		        <li class="active">WaterPredict</li>
 		      </ol>
 		    </section>
 		    <section class="content">
