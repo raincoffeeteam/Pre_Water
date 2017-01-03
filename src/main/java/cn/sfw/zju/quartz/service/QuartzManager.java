@@ -41,7 +41,7 @@ public class QuartzManager {
         } catch (Exception e) {  
             throw new RuntimeException(e);  
         }  
-    }
+	}
 
 	/**
 	 * @Description: 添加一个定时任务

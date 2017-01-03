@@ -49,9 +49,9 @@
   </listener>
   
   <!-- 定时任务 -->
-    <listener>    
+ <!--    <listener>    
     	<listener-class> cn.sfw.zju.quartz.service.QuartzSchedulerListener </listener-class>
-	</listener>
+	</listener> -->
   
   
   

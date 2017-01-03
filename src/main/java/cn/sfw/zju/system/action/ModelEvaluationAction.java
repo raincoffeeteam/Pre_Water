@@ -61,8 +61,11 @@ public class ModelEvaluationAction {
 		Instances train=InstancesUtils.createPreDayInstances(list);
 		
 		//根据输入的参数获取预测日期。（该日期小于已有数据最大日期值）
+		//Long reservationtime=DateUtil.convertTimeToLong((String)map.get("reservationtime"));
+		
 		Long beginDate=DateUtil.convertTimeToLong((String)map.get("beginDate"));
 		Long endDate=DateUtil.convertTimeToLong((String)map.get("endDate"));
+		//参数
 		Map<String, Object> parmMap =new HashMap<>(); 
 		parmMap.put("cst_id", cst_id);
 		parmMap.put("beginDate", beginDate);
@@ -158,6 +161,9 @@ public class ModelEvaluationAction {
 		message.setData(resultList);
 		message.setCode("SUCCESS");
 		return message;
-	}
 	
+	
+	}
 }
+	
+	

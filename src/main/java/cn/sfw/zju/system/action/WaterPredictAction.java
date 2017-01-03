@@ -46,7 +46,7 @@ public class WaterPredictAction {
 	private Interval_DService interval_DService;
 	
 	private WekaUtils wekaUtils=WekaUtils.getInstance();
-	private QuartzJob test = new QuartzJob();
+	
 	
 	
 	/**
@@ -60,10 +60,6 @@ public class WaterPredictAction {
 	@ResponseBody
 	@RequestMapping(value = "/predictWater/", method = RequestMethod.POST)
 	public Message predictWater(HttpServletRequest request,HttpServletResponse response,@RequestBody Map<String,Object> map) throws IOException {
-		test.autoImport();
-		//List<Interval_D> intervalList = dayDaoService.getAllInterval_D();
-		//System.out.println(intervalList);
-		
 		Message message = new Message();
 		
 		String cst_id =(String) map.get("cst_id");
@@ -79,7 +75,7 @@ public class WaterPredictAction {
 		Instances train=InstancesUtils.createPreDayInstances(list);
 		
 		//获取时间间隔timeInterval(假设暂时指定天)
-	//	int timeInterval=(int) map.get("timeInterval");
+		//int timeInterval=(int) map.get("timeInterval");
 		//处理数据	
 		try {
 			train = wekaUtils.toBinary(wekaUtils.normalizeV(wekaUtils.standardizeV(wekaUtils.replaceMissingV(train))));
@@ -89,8 +85,8 @@ public class WaterPredictAction {
 		}
 		//模型训练
 	//	String s =(String) map.get("algorithm");
-		List<String> algorithm =(List<String>) map.get("algorithm");
-		String s = algorithm.get(0);
+		String s =(String) map.get("algorithm");
+		
 		Classifier classifier=null;
 		CVParameterSelection cvParameterSelection = new CVParameterSelection(); //寻找最优参数得类
 		try {
