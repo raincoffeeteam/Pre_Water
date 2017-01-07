@@ -17,29 +17,7 @@ public class DateUtil {
 		}
 		return date.getTime();
 	}
-/*	public static Long convertBeginTimeToLong(String time){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/DD/YYYY h:mm A");
-        String beginDate = time.split("-")[0];
-        Date date = null;
-        try {
-			date = dateFormat.parse(beginDate);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		return date.getTime();
-	}
 	
-	public static Long convertEndTimeToLong(String time){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/DD/YYYY h:mm A");
-        String endDate = time.split("-")[1];
-        Date date = null;
-        try {
-			date = dateFormat.parse(endDate);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		return date.getTime();
-	}*/
 	public static Long convertTimeToLong(Date date){
 		return date.getTime();
 	}

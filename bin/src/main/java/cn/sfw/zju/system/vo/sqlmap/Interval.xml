@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.sfw.zju.system.dao.IntervalDao">
+	<!-- select -->
+	<select id="getAllCstId" resultType="hashmap">
+	    SELECT DISTINCT m.CST_ID ,m.CST_NAME from M_FS_DB_INTERVAL m
+	</select>
+	
+	<select id="getAllById" parameterType="map" resultType="hashmap">
+	    SELECT  "A".CST_ID,"A".CST_NAME,"A".MDI_TS ,"A".MDI_READING as NOW , "B".MDI_READING AS BEF  FROM 
+	(SELECT CST_ID,CST_NAME,MDI_TS, MDI_READING from M_FS_DB_INTERVAL WHERE CST_ID=#{cst_id} AND MDI_TS >#{mdi_ts} AND "MOD"(MDI_TS-#{mdi_ts},#{timeInterval})=0 ORDER BY MDI_TS) A
+join
+	(SELECT CST_ID,CST_NAME,MDI_TS, MDI_READING from M_FS_DB_INTERVAL WHERE CST_ID=#{cst_id} AND MDI_TS >#{mdi_ts} AND "MOD"(MDI_TS-#{mdi_ts},#{timeInterval})=0 ORDER BY MDI_TS) B
+ON "A".MDI_TS="B".MDI_TS+#{timeInterval}
+
+	</select>
+	
+	<select id="getMinTimeById" parameterType="string" resultType="long">
+	    SELECT "MIN"(MDI_TS) from M_FS_DB_INTERVAL WHERE CST_ID=#{cst_id}
+	</select>
+	
+</mapper>

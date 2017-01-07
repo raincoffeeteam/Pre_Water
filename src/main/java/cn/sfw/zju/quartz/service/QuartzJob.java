@@ -137,8 +137,8 @@ public class QuartzJob implements Job {
 			}
 			
 			switch(is_Holiday){
-			case 0:newInterval.setNot_holidays(1);;
-			case 1:newInterval.setIs_holidays(1);;
+			case 0:newInterval.setNot_holidays(1);break;
+			case 1:newInterval.setIs_holidays(1); break;
 			}
 			//System.out.println(newInterval);
 			newDayService.setNew_Interval_D(newInterval);
