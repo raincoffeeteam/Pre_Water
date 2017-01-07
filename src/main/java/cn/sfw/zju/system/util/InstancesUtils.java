@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import cn.sfw.zju.system.vo.Interval_D;
+import cn.sfw.zju.system.vo.Interval_H;
 import cn.sfw.zju.system.vo.New_Interval_D;
 import weka.core.Attribute;
 import weka.core.DenseInstance;
@@ -358,5 +359,59 @@ public class InstancesUtils {
 
 		instances.setClassIndex(9);
 		return instances;
+	}
+	
+	
+	public static Instances createInstancesFromIH(List<Interval_H> list){
+		ArrayList<Attribute> atts = new ArrayList<Attribute>();		
+		Attribute H0=new Attribute("H0");
+		Attribute H1=new Attribute("H1");
+		Attribute H2=new Attribute("H2");
+		Attribute H10=new Attribute("H10");
+		Attribute H11=new Attribute("H11");
+		Attribute H12=new Attribute("H12");
+		Attribute H20=new Attribute("H20");
+		Attribute H21=new Attribute("H21");
+		Attribute H22=new Attribute("H22");
+		Attribute H70=new Attribute("H70");
+		Attribute H71=new Attribute("H71");
+		Attribute H72=new Attribute("H72");
+		
+		atts.add(H0);
+		atts.add(H1);
+		atts.add(H2);		
+		atts.add(H10);
+		atts.add(H11);
+		atts.add(H12);		
+		atts.add(H20);
+		atts.add(H21);
+		atts.add(H22);		
+		atts.add(H70);
+		atts.add(H71);
+		atts.add(H72);
+		
+		Instances instances = new Instances("Data", atts, 0);
+		for(int i=0;i<list.size();i++){
+			Instance inst = new DenseInstance(12);
+			inst.setValue(H0, list.get(i).getH0());
+			inst.setValue(H1, list.get(i).getH1());
+			inst.setValue(H2, list.get(i).getH2());
+			
+			inst.setValue(H10, list.get(i).getH10());
+			inst.setValue(H11, list.get(i).getH11());
+			inst.setValue(H12, list.get(i).getH12());
+			
+			inst.setValue(H20, list.get(i).getH20());
+			inst.setValue(H21, list.get(i).getH21());
+			inst.setValue(H22, list.get(i).getH22());
+			
+			inst.setValue(H70, list.get(i).getH70());
+			inst.setValue(H71, list.get(i).getH71());
+			inst.setValue(H72, list.get(i).getH72());
+			inst.setDataset(instances);
+			instances.add(inst);
+		}
+		instances.setClassIndex(0);
+		return instances;		
 	}
 }

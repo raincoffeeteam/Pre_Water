@@ -10,6 +10,7 @@
 		<if test="endDate!=null">
 			AND MDI_TS &lt; #{endDate}
 		</if>  
+		ORDER BY MDI_TS
 	</select>
 	
 	<select id="getMaxDateAndMinDateByCstId" parameterType="String" resultType="hashmap">
