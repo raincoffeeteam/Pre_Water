@@ -1,4 +1,4 @@
-package cn.sfw.zju.common.util;
+package cn.sfw.zju.system.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -66,7 +66,6 @@ public class DateUtil {
 	
 	public static void main(String args[]){
 		Long time= convertTimeToLong("2016-11-20 00:00:00");
-		System.out.println(time);
 		System.out.println(convertLongToTime(1416326400000L));
 		//1442678400000
 		System.out.println(time-1442678400000L);

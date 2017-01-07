@@ -21,8 +21,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.sfw.zju.common.Message;
-import cn.sfw.zju.common.util.DateUtil;
+import cn.sfw.zju.common.ResponseCode;
 import cn.sfw.zju.system.service.IntervalService;
+import cn.sfw.zju.system.util.DateUtil;
 import net.sf.json.JSONArray;
 import weka.classifiers.evaluation.Evaluation;
 import weka.classifiers.trees.M5P;
@@ -55,7 +56,7 @@ public class IntervalAction {
 		List<Map<String, Object>> result = intervalService.getAllCstId();
 		JSONArray array = JSONArray.fromObject(result);
 		message.setData(array);
-		message.setCode("SUCCESS");
+		message.setCode(ResponseCode.SUCCESS);
 		return message;
 	}
 	

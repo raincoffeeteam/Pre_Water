@@ -20,10 +20,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import cn.sfw.zju.common.Message;
-import cn.sfw.zju.common.util.DateUtil;
+import cn.sfw.zju.common.ResponseCode;
 import cn.sfw.zju.quartz.service.QuartzJob;
 import cn.sfw.zju.system.service.Interval_DService;
 import cn.sfw.zju.system.service.New_Interval_DService;
+import cn.sfw.zju.system.util.DateUtil;
 import cn.sfw.zju.system.util.InstancesUtils;
 import cn.sfw.zju.system.util.WekaUtils;
 import cn.sfw.zju.system.vo.Interval_D;
@@ -427,7 +428,7 @@ public class WaterPredictAction {
 		}
 		
 		message.setData(resultList);
-		message.setCode("SUCCESS");
+		message.setCode(ResponseCode.SUCCESS);
 		return message;
 	}
 	
