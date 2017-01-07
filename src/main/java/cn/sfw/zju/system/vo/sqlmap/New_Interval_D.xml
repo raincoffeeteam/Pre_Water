@@ -15,4 +15,21 @@
 		</if>  
 	</select>
 	
+	<select id="getMaxDateAndMinDateByCstId" parameterType="String" resultType="hashmap">
+		select "MAX"(MDI_TS) AS endDate, "MIN"(MDI_TS) AS beginDate FROM New_Interval_D WHERE CST_ID=#{0}
+	</select>
+	<select id="getMaxTimeByCstId" parameterType="String" resultType="long">
+		SELECT "MAX"(MDI_TS) FROM New_Interval_D WHERE CST_id=#{cst_id}
+	</select>
+	<select id="getAllByCstId" parameterType="String" resultType="cn.sfw.zju.system.vo.New_Interval_D">
+		SELECT CST_ID,CST_NAME,MDI_TS,CDATE,M1,M2,M3,M4,M5,M6,M7,M8,M9,M10,M11,M12,D1,D2,D3,D4,D5,D6,D7,D8,D9,D10,D11,D12,D13,D14,D15,D16,D17,D18,D19,D20,D21,D22,D23,D24,D25,D26,D27,D28,D29,D30,D31,W1,W2,W3,W4,W5,W6,W7,NOT_HOLIDAYS,IS_HOLIDAYS,R,R1,R2,R3,R7,A3 FROM New_Interval_D WHERE CST_ID=#{cst_id}
+	</select>
+	
+	<select id="getRByTime" resultType="double">
+		SELECT R FROM New_Interval_D WHERE MDI_TS=#{0} AND CST_id=#{1}
+	</select>
+	
+	<select id="getNew_Interval_DByCstIdAndTs" parameterType="map" resultType="cn.sfw.zju.system.vo.New_Interval_D">
+		select * FROM New_Interval_D WHERE CST_ID=#{cst_id} AND MDI_TS=#{mdi_ts}
+	</select>
 </mapper>

@@ -17,29 +17,7 @@ public class DateUtil {
 		}
 		return date.getTime();
 	}
-/*	public static Long convertBeginTimeToLong(String time){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/DD/YYYY h:mm A");
-        String beginDate = time.split("-")[0];
-        Date date = null;
-        try {
-			date = dateFormat.parse(beginDate);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		return date.getTime();
-	}
 	
-	public static Long convertEndTimeToLong(String time){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/DD/YYYY h:mm A");
-        String endDate = time.split("-")[1];
-        Date date = null;
-        try {
-			date = dateFormat.parse(endDate);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		return date.getTime();
-	}*/
 	public static Long convertTimeToLong(Date date){
 		return date.getTime();
 	}
@@ -89,7 +67,7 @@ public class DateUtil {
 	public static void main(String args[]){
 		Long time= convertTimeToLong("2016-11-20 00:00:00");
 		System.out.println(time);
-		System.out.println(convertLongToTime(time));
+		System.out.println(convertLongToTime(1416326400000L));
 		//1442678400000
 		System.out.println(time-1442678400000L);
 		System.out.println(convertLongToTime(1415875800000L));
