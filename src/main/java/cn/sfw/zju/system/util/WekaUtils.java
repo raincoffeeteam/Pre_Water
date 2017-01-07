@@ -2,7 +2,9 @@ package cn.sfw.zju.system.util;
 
 import java.awt.BorderLayout;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 import javax.swing.JFrame;
 
@@ -96,11 +98,11 @@ public class WekaUtils {
     /**
 	 * get the m5p classifer
 	 * @param instances
-	 * @param options{-N,-U,-R,-M,-L} 经测试{-N,-M,6}效果�?�?
+	 * @param options{-N,-U,-R,-M,-L} 经测试{-N,-M,6}效果�?�?
 	 * @return
 	 * @throws Exception
 	 */
-	public Classifier getM5PClassifer(Instances instances,String[] options) throws Exception{
+	public M5P getM5PClassifer(Instances instances,String[] options) throws Exception{
 		M5P classifier= new M5P();
 	    classifier.setOptions(options);
 	    classifier.buildClassifier(instances);
@@ -115,7 +117,7 @@ public class WekaUtils {
 	 * @return
 	 * @throws Exception
 	 */
-	public Classifier getBPClassifer(Instances instances,String[] options) throws Exception{
+	public MultilayerPerceptron getBPClassifer(Instances instances,String[] options) throws Exception{
 		MultilayerPerceptron classifier= new MultilayerPerceptron();
 	    classifier.setOptions(options);
 	    classifier.buildClassifier(instances);
@@ -129,7 +131,7 @@ public class WekaUtils {
 	 * @return
 	 * @throws Exception
 	 */
-	public Classifier getSMOregClassifer(Instances instances,String[] options) throws Exception{
+	public SMOreg getSMOregClassifer(Instances instances,String[] options) throws Exception{
 		SMOreg classifier= new SMOreg();
 		classifier.setOptions(options);
 		classifier.buildClassifier(instances);
@@ -137,7 +139,7 @@ public class WekaUtils {
 	}
     
 	/**
-	 * 缺失值处�?
+	 * 缺失值处�?
 	 * @param instances
 	 * @return
 	 * @throws Exception
@@ -150,7 +152,7 @@ public class WekaUtils {
 	}
 		
 	/**
-	 * 标准�?
+	 * 标准�?
 	 * @param instances
 	 * @return
 	 * @throws Exception
@@ -163,7 +165,7 @@ public class WekaUtils {
 	}
 		
 	/**
-	 * 规范�?
+	 * 规范�?
 	 * @param instances
 	 * @return
 	 * @throws Exception
@@ -176,7 +178,7 @@ public class WekaUtils {
 	}
 		
 	/**
-	 * 标称值转化为二分�?
+	 * 标称值转化为二分�?
 	 * @param instances
 	 * @return
 	 * @throws Exception
@@ -199,7 +201,7 @@ public class WekaUtils {
 	 */
 	public void  treeVisual(M5P newClassifier) throws Exception{
 		TreeVisualizer treeVisualizer=new TreeVisualizer(null, newClassifier.graph(), new PlaceNode2());
-				JFrame jFrame=new JFrame("决策树测�?:M5P");
+				JFrame jFrame=new JFrame("决策树测�?:M5P");
 				jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				jFrame.setSize(1980, 1024);
 				jFrame.getContentPane().setLayout(new BorderLayout());
@@ -207,6 +209,7 @@ public class WekaUtils {
 				jFrame.setVisible(true);
 				treeVisualizer.fitToScreen();
 	}
+	
 	
 	
 }

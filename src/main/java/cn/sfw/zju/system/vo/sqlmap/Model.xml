@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.sfw.zju.system.dao.IntervalDao">
+	<!-- select -->
+	<select id="getAllCstId" resultType="hashmap">
+	    SELECT DISTINCT m.CST_ID ,m.CST_NAME from M_FS_DB_INTERVAL m
+	</select>
+	
+	<update id="">
+		insert
+	</update>
+	
+	
+</mapper>
