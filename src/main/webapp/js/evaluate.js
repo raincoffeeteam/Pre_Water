@@ -34,7 +34,7 @@ function modelEvaluation(){
 		var algorithm=$("#e_algorithm").val();
 		$.ajax({
 			  type: 'POST',
-			  url: 'rest/system/modelEvaluation/modelEvalution/',
+			  url: 'rest/system/modelEval/modelEvalution/',
 			  data:JSON.stringify({
 				  cst_id:cst_id,
 				  timeInterval:timeInterval,

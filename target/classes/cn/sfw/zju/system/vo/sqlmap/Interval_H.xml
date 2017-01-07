@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.sfw.zju.system.dao.Interval_HDao">
+
+	<select id="getByCstIdAndTime" parameterType="map" resultType="cn.sfw.zju.system.vo.Interval_H">
+		SELECT * FROM INTERVAL_H WHERE CST_ID=#{cst_id}
+		<if test="beginDate!=null">
+			AND MDI_TS &gt; #{beginDate}
+		</if>
+		<if test="endDate!=null">
+			AND MDI_TS &lt; #{endDate}
+		</if>  
+		ORDER BY MDI_TS
+	</select>
+	
+	<select id="getMaxDateAndMinDateByCstId" parameterType="String" resultType="hashmap">
+		select "MAX"(MDI_TS) AS endDate, "MIN"(MDI_TS) AS beginDate FROM INTERVAL_H WHERE CST_ID=#{0}
+	</select>
+		
+</mapper>

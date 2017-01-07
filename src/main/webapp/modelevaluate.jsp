@@ -65,9 +65,9 @@
 		    				<div class="form-group">
 		    					<label>时间间隔</label>
 		    					<select id="e_timeInterval" class="form-control select2" style="width:100%;">
-		    					<option value="10" selected="selected">10分钟</option>
-								<option value="60">1小时</option>
-								<option value="1440">1天</option>
+		    					<option value="min" selected="selected">10分钟</option>
+								<option value="hour">1小时</option>
+								<option value="day">1天</option>
 		    					</select>
 		    				</div>
 		    			   </div>
@@ -75,8 +75,8 @@
 		    			    <div class="form-group">
 		    			    <label>预测算法</label>		    			    
 		    			     <select id="e_algorithm" class="form-control select2" multiple="multiple" data-placeholder="Select an alorithm" style="width: 100%;">
-									<option value="bp">BP</option>
-									<option value="tree">搜索树</option>
+									<option value="bp">神经网络</option>
+									<option value="tree">决策树</option>
 									<option value="smoreg">支持向量机回归</option>
 							</select>
 		    			   </div>
@@ -136,18 +136,18 @@
 							                <th rowspan="2" >编号</th>
 							                <th rowspan="2" >测量名称</th>
 							                <th rowspan="2">时间</th>
-							                <th rowspan="2">用量</th>
+							                <th rowspan="2">实际用水量</th>
 							                <th colspan="2">决策树</th>
 							                <th colspan="2">支持向量机回归</th>
 							                <th colspan="2">神经网络</th>
 							            </tr>
 							            <tr>
-							                <th>预测用量</th>
-							                <th>差化</th>
-							                <th>预测用量</th>
-							                <th>差化</th>
-							                <th>预测用量</th>
-							                <th>差化</th>
+							                <th>预测用水量</th>
+							                <th>(预测用水-实际用水)/实际用水</th>
+							                <th>预测用水量</th>
+							                <th>(预测用水-实际用水)/实际用水</th>
+							                <th>预测用水量</th>
+							                <th>(预测用水-实际用水)/实际用水</th>
 							            </tr>
 							        </thead>
 			  					</table> 

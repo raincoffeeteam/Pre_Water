@@ -8,6 +8,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
          <typeAlias alias="Interval" type="cn.sfw.zju.system.vo.Interval"/> 
          <typeAlias alias="Interval_D" type="cn.sfw.zju.system.vo.Interval_D"/> 
          <typeAlias alias="New_Interval_D" type="cn.sfw.zju.system.vo.New_Interval_D"/> 
+         <typeAlias alias="Interval_H" type="cn.sfw.zju.system.vo.Interval_H"/> 
     </typeAliases>
  
     <!-- 映射map -->
@@ -15,5 +16,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     	<mapper resource="cn/sfw/zju/system/vo/sqlmap/Interval.xml"/>
     	<mapper resource="cn/sfw/zju/system/vo/sqlmap/Interval_D.xml"/>
     	<mapper resource="cn/sfw/zju/system/vo/sqlmap/New_Interval_D.xml"/>
+    	<mapper resource="cn/sfw/zju/system/vo/sqlmap/Interval_H.xml"/>
     </mappers>
 </configuration>
