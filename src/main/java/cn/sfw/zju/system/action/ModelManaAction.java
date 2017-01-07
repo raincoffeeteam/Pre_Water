@@ -3,6 +3,7 @@ package cn.sfw.zju.system.action;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -138,6 +139,8 @@ public class ModelManaAction {
 		}
 		
 		Map<String, Object> model= new HashMap<String, Object>();
+		
+		
 		model.put("classifier", classifier);
 		model.put("options", op);
 		message.setData(model);
