@@ -42,8 +42,6 @@ public class ModelManaAction {
 	
 	@Autowired
 	private New_Interval_DService ndService;
-	@Autowired
-	private Interval_DService dService;
 	
 	private WekaUtils wekaUtils=WekaUtils.getInstance();
 	
@@ -137,11 +135,12 @@ public class ModelManaAction {
 		}else{
 			return message;
 		}
-		
+		System.out.println(classifier.toString());
+		//System.out.println(op[0]);
 		Map<String, Object> model= new HashMap<String, Object>();
 		
-		
-		model.put("classifier", classifier);
+		model.put("ID", UUID.randomUUID().toString());
+		//model.put("classifier", classifier);
 		model.put("options", op);
 		message.setData(model);
 		message.setCode(ResponseCode.SUCCESS);

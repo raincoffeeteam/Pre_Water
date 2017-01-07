@@ -48,24 +48,24 @@
 		    			  <div class="col-md-4">
 		    				<div class="form-group">
 		    					<label>测试点</label>
-		    					<select id="place" class="form-control select2" style="width:100%;"></select>
+		    					<select id="m_place" class="form-control select2" style="width:100%;"></select>
 		    				</div>
 		    			  
 		    			   </div>
 		    			   <div class="col-md-4">	    			  
 		    				<div class="form-group">
 		    					<label>时间间隔</label>
-		    					<select id="timeInterval" class="form-control select2" style="width:100%;">
-		    					<option value="10" selected="selected">10分钟</option>
-								<option value="60">1小时</option>
-								<option value="1440">1天</option>
+		    					<select id="m_timeInterval" class="form-control select2" style="width:100%;">
+		    					<option value="minute" selected="selected">10分钟</option>
+								<option value="hour">1小时</option>
+								<option value="day">1天</option>
 		    					</select>
 		    				</div>
 		    			   </div>
 		    			   <div class="col-md-4">
 		    			    <div class="form-group">
 		    			    <label>预测算法</label>
-		    			      <select id="algorithm" class="form-control select2" style="width:100%;">
+		    			      <select id="m_algorithm" class="form-control select2" style="width:100%;">
 		    			        <option value="bp" selected="selected">BP</option>
 								<option value="tree">搜索树</option>
 								<option value="smoreg">支持向量机回归</option>
@@ -102,7 +102,7 @@
 		    			 </div>		    
 		    		 </div>
 		    		  <div class="box-footer">
-		    			<button id="gene_model" type="submit" class="btn btn-info pull-right">生成模型</button>    
+		    			<button type="submit" class="btn btn-info pull-right" onclick ="modelManage()">生成模型</button>    
 		    		  </div>		    		   
 		    		  </div>		    			
 		    		</div>		    		
@@ -117,13 +117,14 @@
 							     <table id="taskTable" class="table table-hover" >
 									<thead>
 										<tr>
-											<th>模型时间</th>
-											<th>模型名称</th>
-											<th>间隔</th>
-											<th>操作</th>
+											<th>ID</th>
+											<th>算法</th>
+											<th>测试点</th>
+											<th>开始时间</th>
+											<th>结束时间</th>
 										</tr>
 									</thead>
-									<tbody></tbody>
+									<tbody id="analysis-args" style="width:100%;"></tbody>
 								</table>
 						    </div>	
 	          			</div>
@@ -135,8 +136,17 @@
 	            			<div class="box-header with-border">
 		              			<h3 class="box-title">模型参数</h3>
 	            			</div>
-	           				<div class="box-body">
-	              				<div id="chart" style="width:100%; height: 250px;"></div>
+	           				<div class="box-body" style="width:100%; height: 250px;">
+	              				<table id="paramtable" class="table table-hover"  >
+									<thead>
+										<tr>
+											<th>参数符号</th>
+											<th>参数含义</th>
+											<th>参数值</th>
+										</tr>
+									</thead>
+									<tbody id="modelparam" style="width:100%;"></tbody>
+								</table>
 	            			</div>
 	          			</div>
 	       			   </div>
@@ -180,5 +190,6 @@
 <script type="text/javascript" charset="utf8" src="extends/datatables/extensions/Buttons/js/buttons.print.min.js"></script>
 <script type="text/javascript" charset="utf8" src="extends/datatables/extensions/Buttons/js/buttons.colVis.min.js"></script>
 <script src="extends/My97DatePicker/WdatePicker.js"></script>	
+<script src="js/manage.js"></script>
 </body>
 </html>
