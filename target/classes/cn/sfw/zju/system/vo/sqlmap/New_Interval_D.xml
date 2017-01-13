@@ -26,7 +26,7 @@
 	</select>
 	
 	<select id="getRByTime" resultType="double">
-		SELECT R FROM New_Interval_D WHERE MDI_TS=#{0} AND CST_id=#{1}
+		SELECT NVL(R,0.0) FROM New_Interval_D WHERE MDI_TS=#{0} AND CST_id=#{1}
 	</select>
 	
 	<select id="getNew_Interval_DByCstIdAndTs" parameterType="map" resultType="cn.sfw.zju.system.vo.New_Interval_D">

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.stereotype.Repository;
 import cn.sfw.zju.system.vo.Interval_H;
+import cn.sfw.zju.system.vo.New_Interval_D;
 
 @Repository
 public interface Interval_HDao {
@@ -22,6 +23,10 @@ public interface Interval_HDao {
      */
     public Map<String, Object> getMaxDateAndMinDateByCstId(String cst_id);
     
+    public long getMaxTimeByCstId(String cst_id); //通过id获取当前最大时间
     
+    public List<Interval_H> getAllByCstId(String cst_id); //通过id获取数据
     
+    public double getH0ByTime(long time,String cst_id);
+    public Interval_H getAllByCstIdAndTime(Map<String, Object> parmmap);
 }

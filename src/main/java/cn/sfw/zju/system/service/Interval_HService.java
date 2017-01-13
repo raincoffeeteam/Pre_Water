@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import cn.sfw.zju.system.dao.Interval_HDao;
 import cn.sfw.zju.system.vo.Interval_H;
+import cn.sfw.zju.system.vo.New_Interval_D;
 
 @Service
 public class Interval_HService {
@@ -35,5 +36,21 @@ private final static Log log = LogFactory.getLog(Interval_HService.class);
     public Map<String, Object> getMaxDateAndMinDateByCstId(String cst_id){
     	return dao.getMaxDateAndMinDateByCstId(cst_id);
     }
-
+    
+  //getMaxTimeByCstId
+  	public long getMaxTimeByCstId(String cst_id){
+  		return dao.getMaxTimeByCstId(cst_id);
+  	}
+  		
+  	//getAllByCstId
+  	public List<Interval_H> getAllByCstId(String cst_id){
+  		return dao.getAllByCstId(cst_id);
+  	}
+  	
+  	public double getH0ByTime(long time,String cst_id){
+  		return dao.getH0ByTime(time,cst_id);
+  	}
+  	public Interval_H getAllByCstIdAndTime(Map<String, Object> parmmap){
+  		return dao.getAllByCstIdAndTime(parmmap);
+  	}
 }

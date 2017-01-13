@@ -55,9 +55,9 @@
 		    				<div class="form-group">
 		    					<label>时间间隔</label>
 		    					<select id="timeInterval" class="form-control select2" style="width:100%;">
-		    					<option value="10" selected="selected">10分钟</option>
-								<option value="60">1小时</option>
-								<option value="1440">1天</option>
+		    					<option value="minute" selected="selected">10分钟</option>
+								<option value="hour">1小时</option>
+								<option value="day">1天</option>
 		    					</select>
 		    				</div>
 		    			   </div>

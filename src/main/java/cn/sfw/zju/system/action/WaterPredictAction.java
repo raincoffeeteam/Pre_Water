@@ -62,7 +62,7 @@ public class WaterPredictAction {
 	@RequestMapping(value = "/predictWater/", method = RequestMethod.POST)
 	public Message predictWater(HttpServletRequest request,HttpServletResponse response,@RequestBody Map<String,Object> map) throws IOException {
 		Message message = new Message();
-		
+		System.out.println("aaaaa");
 		String cst_id =(String) map.get("cst_id");
 		
 		//查询该测点的数据起始和终止日期，获取train instances

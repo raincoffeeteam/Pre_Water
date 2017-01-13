@@ -30,7 +30,7 @@ function waterPrediction(){
 		
 		$.ajax({
 			type: 'POST',
-			url: 'rest/system/waterPredictAction/predictWater/',
+			url: 'rest/system/waterPredAction/predWater/',
 			data:JSON.stringify({
 				cst_id:cst_id,
 				timeInterval:timeInterval,

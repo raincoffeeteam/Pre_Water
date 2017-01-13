@@ -11,21 +11,21 @@ public class Interval_H {
 	private Long mdi_ts;
 	private String cdate;
 	
-	private Double H0;
-	private Double H1;
-	private Double H2;
+	private Double H0=0.0;
+	private Double H1=0.0;
+	private Double H2=0.0;
 	
-	private Double H10;
-	private Double H11;
-	private Double H12;
+	private Double H10=0.0;
+	private Double H11=0.0;
+	private Double H12=0.0;
 	
-	private Double H20;
-	private Double H21;
-	private Double H22;
+	private Double H20=0.0;
+	private Double H21=0.0;
+	private Double H22=0.0;
 	
-	private Double H70;
-	private Double H71;
-	private Double H72;
+	private Double H70=0.0;
+	private Double H71=0.0;
+	private Double H72=0.0;
 	public Integer getCst_id() {
 		return cst_id;
 	}
